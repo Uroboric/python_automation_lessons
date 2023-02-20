@@ -6,7 +6,7 @@ In other words, it contains configurations for our tests.'''
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
-from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+
 
 
 
@@ -29,7 +29,6 @@ def get_webdriver(get_chrome_options):
 @pytest.fixture(scope='function')
 def setup(request, get_webdriver):
     driver = get_webdriver
-    driver = EventFiringWebDriver(driver)
     url = 'https://www.nissanusa.com/'
     if request.cls is not None:
         request.cls.driver = driver
