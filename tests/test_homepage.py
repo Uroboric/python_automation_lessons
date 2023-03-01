@@ -1,15 +1,14 @@
 import pytest
-from pom.homepage import Homepage
+from pom.homepage import HomepageNav
 
 
 @pytest.mark.usefixtures('setup')
 class TestHomepage:
 
     def test_homepage_text(self):
-        homepage = Homepage(self.driver)
-        assert homepage.get_vehicles_text() == "Vehicles"
-        assert homepage.get_shop_at_home_text() == "Shop At Home"
-        assert homepage.get_discover_nissan_text() == "Discover Nissan"
-        assert homepage.get_owners_text() == "Owners"
-        assert homepage.get_locate_dealer_text() == "Locate Dealer"
-        assert homepage.get_build_and_price_text() == "Build & Price"
+        homepage = HomepageNav(self.driver)
+        verify_categories = 'Vehicles,Shop At Home,Discover Nissan,Owners,Locate Dealer'
+        verify_category = 'Build & Price'
+        actual_links = (",".join(homepage.get_nav_links_text()), homepage.get_nav_link_text())
+        expected_links = (verify_categories, verify_category)
+        assert actual_links == expected_links, 'Validating Nav Links text'
