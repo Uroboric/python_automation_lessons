@@ -7,8 +7,12 @@ from pytest_check import check
 class TestHomepage:
 
     def test_homepage_tabs(self):
-        # crossovers_and_SUVs
+
         homepage = HomepageNav(self.driver)
+
+        # crossovers_and_SUVs
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", homepage.get_click_crossovers_and_SUVs())
+        homepage.get_click_crossovers_and_SUVs().click()
         num_tab_crossovers_and_SUVs = int(homepage.get_category_crossovers_and_SUVs_text())
         num_grid_pannel_crossovers_and_SUVs = homepage.get_num_crossovers_and_SUVs()
         check.equal(num_tab_crossovers_and_SUVs, num_grid_pannel_crossovers_and_SUVs)
