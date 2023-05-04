@@ -5,9 +5,9 @@ from typing import List
 
 class HomepageNav(SeleniumBase):
     # CSS locators
-    link_crossovers_and_SUVs = '.c_310_tertiary_grid_slider [data-label="Crossovers & SUVs"]'
-    button_crossovers_and_SUVs = '.c_310_tertiary_grid_slider button[data-bodystyle="Crossovers & SUVs"] .c_310-vehicles-count'
-    cars_in_crossovers_and_SUVs = '#vehiclelist--1738608765_categoryPanel_0 .c_310-1'
+    link_crossovers_and_suvs = '.c_310_tertiary_grid_slider [data-label="Crossovers & SUVs"]'
+    button_crossovers_and_suvs = '.c_310_tertiary_grid_slider button[data-bodystyle="Crossovers & SUVs"] .c_310-vehicles-count'
+    cars_in_crossovers_and_suvs = '#vehiclelist--1738608765_categoryPanel_0 .c_310-1'
 
     link_cars = '.c_310_tertiary_grid_slider [data-label="Cars"]'
     button_cars = '.c_310_tertiary_grid_slider button[data-bodystyle="Cars"] .c_310-vehicles-count'
@@ -28,29 +28,29 @@ class HomepageNav(SeleniumBase):
     '''Crossovers & SUVs'''
 
     # Return a tab for click
-    def get_click_crossovers_and_SUVs(self) -> WebElement:
-        return self.is_visible('css', self.link_crossovers_and_SUVs, 'Grid slider link - Cars')
+    def get_crossovers_and_suvs_link(self) -> WebElement:
+        return self.is_visible('css', self.link_crossovers_and_suvs, 'Grid slider link - Cars')
 
     # Return a Crossovers & SUVs count tab
-    def get_category_crossovers_and_SUVs(self) -> WebElement:
-        return self.is_visible('css', self.button_crossovers_and_SUVs, 'Grid slider link - Crossovers & SUVs')
+    def get_category_crossovers_and_suvs(self) -> WebElement:
+        return self.is_visible('css', self.button_crossovers_and_suvs, 'Grid slider link - Crossovers & SUVs')
 
     # Method for getting the text of Crossovers & SUVs count tab
-    def get_category_crossovers_and_SUVs_text(self) -> str:
-        return self.get_category_crossovers_and_SUVs().text
+    def get_category_crossovers_and_suvs_text(self) -> str:
+        return self.get_category_crossovers_and_suvs().text
 
     # Return number of cars displayed on Crossovers & SUVs grid panel
-    def get_tab_catgory_crossovers_and_SUVs(self) -> List[WebElement]:
-        return self.are_visible('css', self.cars_in_crossovers_and_SUVs, 'Cars in Crossovers & SUVs category panel')
+    def get_tab_catgory_crossovers_and_suvs(self) -> List[WebElement]:
+        return self.are_visible('css', self.cars_in_crossovers_and_suvs, 'Cars in Crossovers & SUVs category panel')
 
     # Return number of cars displayed on Crossovers & SUVs category panel
-    def get_num_crossovers_and_SUVs(self) -> int:
-        return len(self.get_tab_catgory_crossovers_and_SUVs())
+    def get_num_crossovers_and_suvs(self) -> int:
+        return len(self.get_tab_catgory_crossovers_and_suvs())
 
     '''Cars'''
 
     # Return a tab for click
-    def get_click_cars(self) -> WebElement:
+    def get_cars_link(self) -> WebElement:
         return self.is_visible('css', self.link_cars, 'Grid slider link - Cars')
 
     # Return a Cars count tab
@@ -72,7 +72,7 @@ class HomepageNav(SeleniumBase):
     '''Electric'''
 
     # Return a tab for click
-    def get_click_electric(self):
+    def get_electric_link(self):
         return self.is_visible('css', self.link_electric, 'Grid slider link - Electric')
 
     # Return a Electric count tab
@@ -94,7 +94,7 @@ class HomepageNav(SeleniumBase):
     '''Sports Cars'''
 
     # Return a tab for click
-    def get_click_sports_cars(self):
+    def get_sports_cars_link(self):
         return self.is_visible('css', self.link_sports_cars, 'Grid slider link - Sports Cars')
 
     # Return a Sports Cars count tab
@@ -116,7 +116,7 @@ class HomepageNav(SeleniumBase):
     '''Trucks'''
 
     # Return a tab for click
-    def get_click_trucks(self):
+    def get_trucks_link(self):
         return self.is_visible('css', self.link_trucks, 'Grid slider link - Trucks')
 
     # Return a Trucks count tab
