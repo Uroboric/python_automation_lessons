@@ -1,14 +1,46 @@
 import pytest
 from pom.homepage import HomepageNav
+from pytest_check import check
 
 
 @pytest.mark.usefixtures('setup')
 class TestHomepage:
 
-    def test_homepage_text(self):
+    def test_homepage_tabs(self):
+
         homepage = HomepageNav(self.driver)
-        verify_categories = 'Vehicles,Shop At Home,Discover Nissan,Owners,Locate Dealer'
-        verify_category = 'Build & Price'
-        actual_links = (",".join(homepage.get_nav_links_text()), homepage.get_nav_link_text())
-        expected_links = (verify_categories, verify_category)
-        assert actual_links == expected_links, 'Validating Nav Links text'
+
+        # crossovers_and_SUVs
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", homepage.get_click_crossovers_and_SUVs())
+        homepage.get_click_crossovers_and_SUVs().click()
+        num_tab_crossovers_and_SUVs = int(homepage.get_category_crossovers_and_SUVs_text())
+        num_grid_pannel_crossovers_and_SUVs = homepage.get_num_crossovers_and_SUVs()
+        check.equal(num_tab_crossovers_and_SUVs, num_grid_pannel_crossovers_and_SUVs)
+
+        # Cars
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", homepage.get_click_cars())
+        homepage.get_click_cars().click()
+        num_tab_cars = int(homepage.get_category_cars_text())
+        num_grid_pannel_cars = homepage.get_num_cars()
+        check.equal(num_tab_cars, num_grid_pannel_cars)
+
+        # Electric
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", homepage.get_click_electric())
+        homepage.get_click_electric().click()
+        num_tab_electric = int(homepage.get_category_electric_text())
+        num_grid_pannel_electric = homepage.get_num_electric()
+        check.equal(num_tab_electric, num_grid_pannel_electric)
+
+        # Sports cars
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", homepage.get_click_sports_cars())
+        homepage.get_click_sports_cars().click()
+        num_tab_sports_cars = int(homepage.get_category_sports_cars_text())
+        num_grid_pannel_sports_cars = homepage.get_num_sports_cars()
+        check.equal(num_tab_sports_cars, num_grid_pannel_sports_cars)
+
+        # Trucks
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", homepage.get_click_trucks())
+        homepage.get_click_trucks().click()
+        num_tab_trucks = int(homepage.get_category_trucks_text())
+        num_grid_pannel_trucks = homepage.get_num_trucks()
+        check.equal(num_tab_trucks, num_grid_pannel_trucks)
