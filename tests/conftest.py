@@ -12,7 +12,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 @pytest.fixture
 def get_chrome_options():
     options = chrome_options()
-    options.add_argument('chrome')
+    options.add_argument('--headless')
     options.add_argument('--start-maximized')
     options.add_argument('--max')
     return options
