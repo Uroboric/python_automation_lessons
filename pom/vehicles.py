@@ -4,7 +4,7 @@ from base.seleniumbase import SeleniumBase
 
 class VehiclesNav(SeleniumBase):
     # Vehicles button
-    button_vehicles = 'button.c_320B-menu-link[data-panel="Vehicles"]'
+    button_vehicles = '.c_320B-menu-links-list .c_320B-menu-links-list-item button.c_320B-menu-link[data-panel="Vehicles"]'
 
     # Car mappings
     car_mapping = {
