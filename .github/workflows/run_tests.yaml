@@ -28,3 +28,4 @@ jobs:
 
     - name: Run tests
       run: pytest test_vehicles.py -s -v -n 4
+
