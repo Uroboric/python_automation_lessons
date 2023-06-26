@@ -13,7 +13,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 def get_chrome_options():
     options = chrome_options()
     options.add_argument('--headless')
+    options.add_argument('user-agent=[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36]')
     options.add_argument('--start-maximized')
+    options.add_argument('--window-size=1920,1080')
     return options
 
 
