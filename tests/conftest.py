@@ -22,7 +22,7 @@ def get_chrome_options():
 @pytest.fixture
 def get_webdriver(get_chrome_options):
     options = get_chrome_options
-    service = Service(ChromeDriverManager(version='107.0.0.0').install())
+    service = Service(ChromeDriverManager(version='107.0.0').install())
     driver = webdriver.Chrome(service=service, options=options)
     return driver
 
