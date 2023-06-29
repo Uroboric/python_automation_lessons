@@ -12,6 +12,7 @@ from selenium.webdriver.chrome.options import Options as chrome_options
 def get_chrome_options():
     options = chrome_options()
     options.add_argument('--headless')
+    options.add_argument('user-agent=[Mozilla/5.0 (X11; Linux x86_64; Ubuntu 22.04) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36]')
     options.add_argument('--window-size=1920,1080')
     options.add_argument('--start-maximized')
     return options
