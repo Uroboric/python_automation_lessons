@@ -17,9 +17,7 @@ jobs:
         python-version: "3.10"
 
     - name: Install Chrome
-      run: |
-        sudo apt-get update
-        sudo apt-get install google-chrome-stable
+      uses: nanasess/setup-chromedriver@v1.1.0
 
     - name: Install dependencies
       run: |
