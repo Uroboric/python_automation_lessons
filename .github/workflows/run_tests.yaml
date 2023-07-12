@@ -27,4 +27,4 @@ jobs:
     - name: Run tests
       run: |
         cd tests
-        pytest test_vehicles.py -s -v -n 4 
+        pytest test_vehicles.py -s -v -n 4  
