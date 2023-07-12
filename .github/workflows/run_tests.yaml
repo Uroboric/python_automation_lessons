@@ -15,6 +15,10 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: "3.11"
+        
+    - name: Ping url
+      run: curl -I https://www.nissanusa.com/
+
 
     - name: Install Chrome and ChromeDriver
       uses: nanasess/setup-chromedriver@v1.1.0
@@ -27,4 +31,4 @@ jobs:
     - name: Run tests
       run: |
         cd tests
-        pytest test_vehicles.py -s -v -n 4  
+        pytest test_vehicles.py -s -vv -n 4 --capture=no
