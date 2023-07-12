@@ -17,7 +17,7 @@ jobs:
         python-version: "3.11"
         
     - name: Ping url
-      run: curl -I <https://www.nissanusa.com/>
+      run: curl -I https://www.nissanusa.com/
 
 
     - name: Install Chrome and ChromeDriver
