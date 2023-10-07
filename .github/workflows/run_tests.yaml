@@ -22,7 +22,7 @@ jobs:
         CHROMEDRIVER_VERSION=94.0.4606.61  
         wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/local/bin/
+        sudo mv chromedriver /usr/bin/google-chrome
         sudo chmod +x /usr/local/bin/chromedriver
       continue-on-error: true  # Continue even if the installation fails
 
