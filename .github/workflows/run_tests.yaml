@@ -16,16 +16,6 @@ jobs:
       with:
         python-version: "3.11"
         
-    - name: Install Chrome
-      run: |
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo dpkg -i google-chrome-stable_current_amd64.deb
-        sudo apt-get -f install
-      continue-on-error: true  # Continue even if the installation fails
-
-    - name: Verify Chrome installation
-      run: google-chrome-stable --version
-        
     - name: Install ChromeDriver
       run: |
         CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | cut -d'.' -f1)
@@ -33,7 +23,7 @@ jobs:
         wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/bin/
-        sudo chmod +x /usr/local/bin/chromedriver
+        sudo chmod +x /usr/bin/chromedriver
       continue-on-error: true  # Continue even if the installation fails
 
     - name: Verify ChromeDriver installation
