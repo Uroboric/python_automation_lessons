@@ -12,16 +12,21 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: "3.11"
-        
-    - name: Ping url
-      run: curl -I https://www.nissanusa.com/
 
+    - name: Install ChromeDriver
+      run: |
+        CHROMEDRIVER_VERSION="94.0.4606.61"  # Укажите версию ChromeDriver, которую вы установили
+        wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        chmod +x chromedriver
+        sudo mv chromedriver /usr/local/bin/
+      continue-on-error: true  
 
-    - name: Install Chrome and ChromeDriver
-      uses: nanasess/setup-chromedriver@v1.1.0
+    - name: Verify ChromeDriver installation
+      run: chromedriver --version
 
     - name: Install dependencies
       run: |
@@ -31,4 +36,4 @@ jobs:
     - name: Run tests
       run: |
         cd tests
-        pytest test_vehicles.py -s -vv -n 4 --capture=no
+        pytest test_vehicles.py -s -vv -n 8
