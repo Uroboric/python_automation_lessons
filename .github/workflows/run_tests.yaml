@@ -14,13 +14,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: "3.11"
-    - name: Install Chrome
-      run: |
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo dpkg -i google-chrome-stable_current_amd64.deb
-        sudo apt-get -f install
-      continue-on-error: true  # Продолжайте даже в случае ошибки установки
+        python-version: "3.11
 
     - name: Install ChromeDriver
       run: |
