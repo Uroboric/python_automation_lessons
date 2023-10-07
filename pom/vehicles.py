@@ -1,7 +1,9 @@
+import allure
 from selenium.webdriver.remote.webelement import WebElement
 from base.seleniumbase import SeleniumBase
 
 
+@allure.suite("Vehicles Navigation test")
 class VehiclesNav(SeleniumBase):
     # Vehicles button
     button_vehicles = 'ul>.c_320B-menu-links-list-item>[data-panel="Vehicles"]'
@@ -38,18 +40,18 @@ class VehiclesNav(SeleniumBase):
         }
     }
 
-    # Return a Vehicles button
+    @allure.title("Return a Vehicles button")
     def get_button_vehicles(self) -> WebElement:
         return self.is_visible('css', self.button_vehicles, 'Vehicles button')
 
-    # Return a car link element based on car_name
+    @allure.title("Return a car link element based on car_name")
     def get_car_link(self, car_name) -> WebElement:
         return self.is_visible('css', self.car_mapping[car_name]['link_selector'], f'{car_name} link')
 
-    # Return a car price element based on car_name
+    @allure.title("Return a car price element based on car_name")
     def get_car_price(self, car_name) -> WebElement:
         return self.is_visible('css', self.car_mapping[car_name]['price_selector'], f'{car_name} price')
 
-    # Method for getting the text of a car price based on car_name
+    @allure.title("Method for getting the text of a car price based on car_name")
     def get_car_price_text(self, car_name):
         return self.get_car_price(car_name).text

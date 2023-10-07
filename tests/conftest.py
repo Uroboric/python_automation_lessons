@@ -1,8 +1,9 @@
 '''conftest.py: This is a local plugin that allows you to connect hook functions and fixtures to the directory
 where the conftest.py file exists, and all of its subdirectories.
 In other words, it contains configurations for our tests.'''
+from datetime import datetime
 
-
+import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
@@ -33,4 +34,6 @@ def setup(request, get_webdriver):
         request.cls.driver = driver
     driver.get(url)
     yield driver
+    screenshot_data = driver.get_screenshot_as_png()
+    allure.attach(screenshot_data, name=f"Screenshot {datetime.today()}", attachment_type=allure.attachment_type.PNG)
     driver.quit()
