@@ -15,6 +15,21 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: "3.11"
+        
+    - name: Install ChromeDriver
+      run: |
+        CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | cut -d'.' -f1)
+        CHROMEDRIVER_VERSION=94.0.4606.61  
+        wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/
+        sudo chmod +x /usr/local/bin/chromedriver
+      continue-on-error: true  # Continue even if the installation fails
+
+    - name: Verify ChromeDriver installation
+      run: chromedriver --version
+
+        
 
     - name: Install dependencies
       run: |
