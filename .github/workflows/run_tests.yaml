@@ -18,12 +18,12 @@ jobs:
 
     - name: Install ChromeDriver
       run: |
-        CHROME_VERSION=94.0.4606.61  # Укажите версию Google Chrome, которую необходимо установить
-        wget https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
+        CHROMEDRIVER_VERSION="94.0.4606.61"  # Укажите версию ChromeDriver, которую вы установили
+        wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
+        chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
-        sudo chmod +x /usr/local/bin/chromedriver
-        continue-on-error: true  
+      continue-on-error: true  
 
     - name: Verify ChromeDriver installation
       run: chromedriver --version
