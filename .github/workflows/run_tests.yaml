@@ -18,7 +18,7 @@ jobs:
 
     - name: Install ChromeDriver
       run: |
-        CHROMEDRIVER_VERSION="94.0.4606.61"  # Укажите версию ChromeDriver, которую вы установили
+        CHROMEDRIVER_VERSION="114.0.5735.90"  # Укажите версию ChromeDriver, которую вы установили
         wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         chmod +x chromedriver
