@@ -24,7 +24,7 @@ def get_chrome_options():
 @pytest.fixture
 def get_webdriver(get_chrome_options):
     options = get_chrome_options
-    chrome_service = ChromeService(ChromeDriverManager().install())
+    chrome_service = ChromeService(ChromeDriverManager(version="94.0.4606.61").install())
     driver = webdriver.Chrome(service=chrome_service, options=options)
     return driver
 
