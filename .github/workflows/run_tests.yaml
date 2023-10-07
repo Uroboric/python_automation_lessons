@@ -21,7 +21,17 @@ jobs:
        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
        sudo dpkg -i google-chrome-stable_current_amd64.deb
        sudo apt-get -f install
-       continue-on-error: true  
+      continue-on-error: true  # Продолжайте даже в случае ошибки установки
+
+    - name: Install ChromeDriver
+      run: |
+        CHROME_VERSION=94.0.4606.61  # Укажите версию Google Chrome, которую необходимо установить
+        wget https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/
+        sudo chmod +x /usr/local/bin/chromedriver
+      continue-on-error: true  # Продолжайте даже в случае ошибки установки
+
 
         
     - name: Install ChromeDriver
