@@ -8,7 +8,7 @@ from typing import List
 class SeleniumBase:
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 15, 0.5)
+        self.wait = WebDriverWait(driver, 5, 0.5)
 
     def get_selenium_by(self, find_by: str) -> dict:
         '''Return a dictionary, where Keys are Strings representing a search locator strategies and Values are related By class values'''
