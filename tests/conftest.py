@@ -7,9 +7,6 @@ import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
-from selenium.webdriver.chrome.service import Service as ChromiumService
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.utils import ChromeType
 
 
 @pytest.fixture
@@ -25,7 +22,7 @@ def get_chrome_options():
 @pytest.fixture
 def get_webdriver(get_chrome_options):
     options = get_chrome_options
-    driver = webdriver.Chrome(options=options,service=ChromiumService(ChromeDriverManager(version="114.0.5735.90",chrome_type=ChromeType.CHROMIUM).install()))
+    driver = webdriver.Chrome(options=options)
     return driver
 
 
