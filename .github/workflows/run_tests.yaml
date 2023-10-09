@@ -21,6 +21,10 @@ jobs:
         wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         chmod +x chromedriver
+        sudo mv chromedriver /usr/local/bin/
+
+    - name: Add ChromeDriver to PATH
+      run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
 
     - name: Verify ChromeDriver installation
       run: chromedriver --version
