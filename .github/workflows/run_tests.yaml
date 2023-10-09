@@ -16,15 +16,6 @@ jobs:
       with:
         python-version: "3.11"
 
-    - name: Install ChromeDriver
-      run: |
-        CHROMEDRIVER_VERSION="117.0.5938.132"  # Укажите версию ChromeDriver, которую вы установили
-        wget -N https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin/
-      continue-on-error: true  
-
     - name: Verify ChromeDriver installation
       run: chromedriver --version
 
