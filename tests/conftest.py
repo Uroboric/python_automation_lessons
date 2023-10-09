@@ -16,7 +16,7 @@ from webdriver_manager.core.utils import ChromeType
 def get_chrome_options():
     options = chrome_options()
     options.add_argument('--headless')
-    options.add_argument('user-agent=[Mozilla/5.0 (X11; Linux x86_64; Ubuntu 22.04) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.92 Safari/537.36]')
+    options.add_argument('user-agent=[Mozilla/5.0 (X11; Linux x86_64; Ubuntu 22.04) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.90 Safari/537.36]')
     options.add_argument('--window-size=1920,1080')
     options.add_argument('--start-maximized')
     return options
@@ -25,7 +25,7 @@ def get_chrome_options():
 @pytest.fixture
 def get_webdriver(get_chrome_options):
     options = get_chrome_options
-    driver = webdriver.Chrome(options=options,service=ChromiumService(ChromeDriverManager(version="117.0.5938.92",chrome_type=ChromeType.CHROMIUM).install()))
+    driver = webdriver.Chrome(options=options,service=ChromiumService(ChromeDriverManager(version="114.0.5735.90",chrome_type=ChromeType.CHROMIUM).install()))
     return driver
 
 
