@@ -7,9 +7,6 @@ import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
-from selenium.webdriver.chrome.service import Service as ChromiumService
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.utils import ChromeType
 
 
 @pytest.fixture
@@ -25,7 +22,8 @@ def get_chrome_options():
 @pytest.fixture
 def get_webdriver(get_chrome_options):
     options = get_chrome_options
-    driver = webdriver.Chrome(options=options,service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
+    driver = webdriver.Chrome(options=options)
+    driver.implicitly_wait(3)
     return driver
 
 
@@ -35,6 +33,8 @@ def setup(request, get_webdriver):
     url = 'https://www.nissanusa.com/'
     if request.cls is not None:
         request.cls.driver = driver
+    else:
+        return "driver is not initialized"
     driver.get(url)
     yield driver
     screenshot_data = driver.get_screenshot_as_png()
