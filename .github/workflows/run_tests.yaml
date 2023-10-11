@@ -24,7 +24,7 @@ jobs:
     - name: Run tests
       run: |
         cd tests
-        pytest test_vehicles.py -s -vv -n 8
+        pytest test_vehicles.py -s -vv -n 7
 
     - name: Get Allure history
       uses: actions/checkout@v3
