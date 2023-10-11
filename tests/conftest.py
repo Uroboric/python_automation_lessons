@@ -23,6 +23,7 @@ def get_chrome_options():
 def get_webdriver(get_chrome_options):
     options = get_chrome_options
     driver = webdriver.Chrome(options=options)
+    driver.implicitly_wait(3)
     return driver
 
 
@@ -32,8 +33,11 @@ def setup(request, get_webdriver):
     url = 'https://www.nissanusa.com/'
     if request.cls is not None:
         request.cls.driver = driver
+    else:
+        return "driver is not initialized"
     driver.get(url)
     yield driver
     screenshot_data = driver.get_screenshot_as_png()
     allure.attach(screenshot_data, name=f"Screenshot {datetime.today()}", attachment_type=allure.attachment_type.PNG)
     driver.quit()
+
