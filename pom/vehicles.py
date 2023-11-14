@@ -6,8 +6,8 @@ from base.seleniumbase import SeleniumBase
 @allure.suite("Vehicles Navigation test")
 class VehiclesNav(SeleniumBase):
     # Vehicles button
-    button_vehicles = 'ul>.c_320B-menu-links-list-item>[data-panel="Vehicles"]'
-
+    button_vehicles = 'button[aria-controls="c_320B-panel-Vehicles"]'
+#xpath //button[@aria-controls="c_320B-panel-Vehicles"]
     # Car mappings
     car_mapping = {
         'Ariya': {
@@ -40,9 +40,17 @@ class VehiclesNav(SeleniumBase):
         }
     }
 
-    @allure.title("Return a Vehicles button")
-    def get_button_vehicles(self) -> WebElement:
-        return self.is_visible('css', self.button_vehicles, 'Vehicles button')
+    @allure.title("Return a Vehicles button is present")
+    def get_button_to_be_clickable(self) -> WebElement:
+        return self.is_present('css', self.button_vehicles, 'Vehicles button is not clickable')
+
+    @allure.title("Return a Vehicles button is present")
+    def get_button_vehicles_present(self) -> WebElement:
+        return self.is_present('css', self.button_vehicles, 'Vehicles button is not present')
+
+    @allure.title("Return a Vehicles button is visible")
+    def get_button_vehicles_visible(self) -> WebElement:
+        return self.is_visible('css', self.button_vehicles, 'Vehicles button is not visible')
 
     @allure.title("Return a car link element based on car_name")
     def get_car_link(self, car_name) -> WebElement:

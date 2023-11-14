@@ -14,8 +14,11 @@ class TestVehicles:
     @pytest.mark.parametrize('car_name, expected_price', test_data)
     def test_vehicle_price(self, car_name, expected_price):
         vehicles = VehiclesNav(self.driver)
-        print(f"Current URL: {vehicles.current_url}")
-        vehicles.get_button_vehicles().click()
+        #vehicles.get_button_to_be_clickable().click()
+        # print(f"Current URL: {self.driver.current_url}")
+        # vehicles.get_button_vehicles_present().click()
+        # print(f"Current URL: {self.driver.current_url}")
+        vehicles.get_button_vehicles_visible().click()
         vehicles.get_car_link(car_name).click()
         actual_price = vehicles.get_car_price_text(car_name)
         assert actual_price == expected_price

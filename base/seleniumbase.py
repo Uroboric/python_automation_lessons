@@ -8,7 +8,7 @@ from typing import List
 class SeleniumBase:
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10, 0.5)
+        self.wait = WebDriverWait(driver, 5, 0.5)
 
     def get_selenium_by(self, find_by: str) -> dict:
         '''Return a dictionary, where Keys are Strings representing a search locator strategies and Values are related By class values'''
@@ -26,6 +26,10 @@ class SeleniumBase:
     def is_visible(self, find_by: str, locator: str, locator_name: str = None) -> WebElement:
         '''Waiting on element and return WebElement if it is visible'''
         return self.wait.until(ec.visibility_of_element_located((self.get_selenium_by(find_by), locator)), locator_name)
+
+    def is_clickable(self, find_by: str, locator: str, locator_name: str = None) -> WebElement:
+        '''Waiting on element and return WebElement if it is clickable'''
+        return self.wait.until(ec.element_to_be_clickable((self.get_selenium_by(find_by), locator)), locator_name)
 
     def is_present(self, find_by: str, locator: str, locator_name: str = None) -> WebElement:
         '''Waiting on element and return WebElement if it is present on DOM'''
