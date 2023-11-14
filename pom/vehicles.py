@@ -11,7 +11,7 @@ class VehiclesNav(SeleniumBase):
     # Car mappings
     car_mapping = {
         'Ariya': {
-            'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [href="/vehicles/electric-cars/ariya.html"]',
+            'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [data-vehicle-name="Nissan ARIYA"]',
             'price_selector': '.col-12 .c_349-pricing-msrp'
         },
         'Kicks': {

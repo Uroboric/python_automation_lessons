@@ -14,7 +14,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 def get_firefox_options():
     options = FirefoxOptions()
     options.add_argument('--headless')
-    options.add_argument('--user-agent=[Mozilla/5.0 (X11; Linux x86_64; Ubuntu 22.04) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.90 Safari/537.36]')
+    options.add_argument('--user-agent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0')
     options.add_argument('--window-size=1920,1080')
     options.add_argument('--start-maximized')
     return options
