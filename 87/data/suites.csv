@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Tue Nov 14 22:27:32 GMT 2023","Tue Nov 14 22:28:05 GMT 2023","32433","tests","Testing Vehicles parametrize","TestVehicles","","","Asserting Vehicles prices",""
+"broken","Tue Nov 14 22:27:33 GMT 2023","Tue Nov 14 22:28:14 GMT 2023","40725","tests","Testing Vehicles parametrize","TestVehicles","","","Asserting Vehicles prices",""
+"broken","Tue Nov 14 22:27:33 GMT 2023","Tue Nov 14 22:28:14 GMT 2023","40826","tests","Testing Vehicles parametrize","TestVehicles","","","Asserting Vehicles prices",""
+"broken","Tue Nov 14 22:27:33 GMT 2023","Tue Nov 14 22:28:15 GMT 2023","41885","tests","Testing Vehicles parametrize","TestVehicles","","","Asserting Vehicles prices",""
+"broken","Tue Nov 14 22:27:32 GMT 2023","Tue Nov 14 22:28:13 GMT 2023","41359","tests","Testing Vehicles parametrize","TestVehicles","","","Asserting Vehicles prices",""
+"broken","Tue Nov 14 22:27:33 GMT 2023","Tue Nov 14 22:28:16 GMT 2023","42830","tests","Testing Vehicles parametrize","TestVehicles","","","Asserting Vehicles prices",""
+"broken","Tue Nov 14 22:27:31 GMT 2023","Tue Nov 14 22:28:13 GMT 2023","42055","tests","Testing Vehicles parametrize","TestVehicles","","","Asserting Vehicles prices",""
