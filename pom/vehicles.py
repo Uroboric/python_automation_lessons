@@ -6,7 +6,7 @@ from base.seleniumbase import SeleniumBase
 @allure.suite("Vehicles Navigation test")
 class VehiclesNav(SeleniumBase):
     # Vehicles button
-    button_vehicles = 'ul>.c_320B-menu-links-list-item>[data-panel="Vehicles"]'
+    button_vehicles = 'button[aria-controls="c_320B-panel-Vehicles"]'
 
     # Car mappings
     car_mapping = {
