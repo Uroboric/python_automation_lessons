@@ -81,7 +81,6 @@ def get_webdriver(get_chrome_options):
     return driver
 
 
-
 @pytest.fixture(scope='function')
 def setup(request, get_webdriver):
     driver = get_webdriver
