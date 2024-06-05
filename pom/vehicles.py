@@ -12,31 +12,31 @@ class VehiclesNav(SeleniumBase):
     car_mapping = {
         'Ariya': {
             'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [data-vehicle-name="Nissan ARIYA"]',
-            'price_selector': '.col-12 .c_349-pricing-msrp'
+            'price_selector': 'span.js-sub-model-price'
         },
         'Kicks': {
             'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [href="/vehicles/crossovers-suvs/kicks.html"]',
-            'price_selector': '.col-12 .c_349-pricing-msrp'
+            'price_selector': 'span.js-sub-model-price'
         },
         'Rogue Sport': {
             'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [href="/vehicles/crossovers-suvs/rogue-sport.html"]',
-            'price_selector': '.col-12 .c_349-pricing-msrp'
+            'price_selector': 'span.js-sub-model-price'
         },
         'Rogue': {
             'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [href="/vehicles/crossovers-suvs/rogue.html"]',
-            'price_selector': '.col-12 .js-sub-model-price'
+            'price_selector': 'span.js-sub-model-price'
         },
         'Murano': {
             'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [href="/vehicles/crossovers-suvs/murano.html"]',
-            'price_selector': '.col-12 .c_349-pricing-msrp'
+            'price_selector': 'span.js-sub-model-price'
         },
         'Pathfinder': {
             'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [href="/vehicles/crossovers-suvs/pathfinder.html"]',
-            'price_selector': '.col-12 .c_349-pricing-msrp'
+            'price_selector': 'span.js-sub-model-price'
         },
         'Armada': {
             'link_selector': '#categoryPanel_Crossovers-and-SUVs_0 [href="/vehicles/crossovers-suvs/armada.html"]',
-            'price_selector': '.col-12 .c_349-pricing-msrp'
+            'price_selector': 'span.js-sub-model-price'
         }
     }
 
