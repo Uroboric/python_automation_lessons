@@ -2,5 +2,5 @@
 venv/
 .pytest_cache
 /tests/allure_results/
-/tests/geckodriver.log
+/tests/allure_report/
 
