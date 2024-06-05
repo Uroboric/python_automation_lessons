@@ -7,14 +7,14 @@ from pom.vehicles import VehiclesNav
 @pytest.mark.usefixtures('setup')
 @pytest.mark.parallel
 class TestVehicles:
-    test_data = [('Ariya', '$43,190'), ('Kicks', '$20,440'), ('Rogue Sport', '$24,960'), ('Rogue', '$27,910'),
-                 ('Murano', '$34,160'), ('Pathfinder', '$35,320'), ('Armada', '$50,700')]
+    test_data = [('Ariya', '$39,590'), ('Kicks', '$21,340'), ('Rogue Sport', '$24,960'), ('Rogue', '$28,850'),
+                 ('Murano', '$38,740'), ('Pathfinder', '$36,650'), ('Armada', '$56,520')]
 
     @allure.title("Asserting Vehicles prices")
     @pytest.mark.parametrize('car_name, expected_price', test_data)
     def test_vehicle_price(self, car_name, expected_price):
         vehicles = VehiclesNav(self.driver)
-        #vehicles.get_button_to_be_clickable().click()
+        vehicles.get_button_to_be_clickable().click()
         # print(f"Current URL: {self.driver.current_url}")
         # vehicles.get_button_vehicles_present().click()
         # print(f"Current URL: {self.driver.current_url}")
