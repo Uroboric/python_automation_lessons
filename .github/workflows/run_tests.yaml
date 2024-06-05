@@ -27,7 +27,7 @@ jobs:
 
     - name: Run tests
       if: always()
-      run: python -m pytest tests/test_vehicles.py -s -vv -n 7 --alluredir=tests/allure_results
+      run: python -m pytest tests/test_vehicles.py -s -vv -n 2 --alluredir=tests/allure_results
       continue-on-error: true
 
     - name: Get Allure history
