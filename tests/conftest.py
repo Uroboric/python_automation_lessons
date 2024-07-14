@@ -81,14 +81,14 @@ def get_webdriver(get_chrome_options):
     options = get_chrome_options
     capabilities = {
         "browserName": "chrome",
-        "browserVersion": "124.0",
+        "browserVersion": "125.0",
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": True
         }
     }
     driver = webdriver.Remote(
-        command_executor=f'{selenoid_url}/wd/hub',
+        command_executor=f"http://{selenoid_login}:{selenoid_pass}@{selenoid_url}/wd/hub",
         options=options,
         desired_capabilities=capabilities
     )
