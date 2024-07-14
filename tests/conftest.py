@@ -40,24 +40,37 @@ In other words, it contains configurations for our tests.'''
 #     driver.quit()
 
 # CHROME SETTINGS
-from datetime import datetime
 
-import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
+from helpers import attach
+from dotenv import load_dotenv
+import os
+
+
+@pytest.fixture(scope="session", autouse=True)
+def load_env():
+    load_dotenv()
+
+
+selenoid_login = os.getenv("SELENOID_LOGIN")
+selenoid_pass = os.getenv("SELENOID_PASS")
+selenoid_url = os.getenv("SELENOID_URL")
 
 
 @pytest.fixture
 def get_chrome_options():
     options = chrome_options()
     # options.add_argument('--headless')
-    options.add_argument('--user-agent=[Mozilla/5.0 (X11; Linux x86_64; Ubuntu 22.04) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.90 Safari/537.36]')
+    options.add_argument(
+        '--user-agent=[Mozilla/5.0 (X11; Linux x86_64; Ubuntu 22.04) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.90 Safari/537.36]')
     options.add_argument('--window-size=1920,1080')
     options.add_argument('--start-maximized')
     return options
 
-#for webdriver(localy)
+
+# for webdriver(localy)
 # @pytest.fixture
 # def get_webdriver(get_chrome_options):
 #     options = get_chrome_options
@@ -71,10 +84,11 @@ def get_webdriver(get_chrome_options):
         "browserVersion": "124.0",
         "selenoid:options": {
             "enableVNC": True,
+            "enableVideo": True
         }
     }
     driver = webdriver.Remote(
-        command_executor='http://0.0.0.0:8080/wd/hub',
+        command_executor=f'{selenoid_url}/wd/hub',
         options=options,
         desired_capabilities=capabilities
     )
@@ -91,6 +105,10 @@ def setup(request, get_webdriver):
         return "driver is not initialized"
     driver.get(url)
     yield driver
-    screenshot_data = driver.get_screenshot_as_png()
-    allure.attach(screenshot_data, name=f"Screenshot {datetime.today()}", attachment_type=allure.attachment_type.PNG)
+
+    attach.add_html(driver)
+    attach.add_logs(driver)
+    attach.add_screenshots(driver)
+    attach.add_video(driver)
+
     driver.quit()
