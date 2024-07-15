@@ -44,19 +44,14 @@ In other words, it contains configurations for our tests.'''
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
-from helpers import attach
+from utils import attach
 from dotenv import load_dotenv
 import os
 
 
-@pytest.fixture(scope="session", autouse=True)
-def load_env():
-    load_dotenv()
-
-
-selenoid_login = os.getenv("SELENOID_LOGIN")
-selenoid_pass = os.getenv("SELENOID_PASS")
-selenoid_url = os.getenv("SELENOID_URL")
+# @pytest.fixture(scope="session", autouse=True)
+# def load_env():
+#     load_dotenv()
 
 
 @pytest.fixture
@@ -76,12 +71,21 @@ def get_chrome_options():
 #     options = get_chrome_options
 #     driver = webdriver.Chrome(options=options)
 #     return driver
+
+load_dotenv()
+selenoid_login = os.getenv('SELENOID_LOGIN')
+selenoid_pass = os.getenv('SELENOID_PASS')
+selenoid_url = os.getenv('SELENOID_URL')
+
+
+
 @pytest.fixture
 def get_webdriver(get_chrome_options):
+    load_dotenv()
     options = get_chrome_options
     capabilities = {
         "browserName": "chrome",
-        "browserVersion": "125.0",
+        "browserVersion": "124.0",
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": True
